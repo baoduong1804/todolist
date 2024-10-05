@@ -25,10 +25,25 @@ export const globalStyles = StyleSheet.create({
         paddingHorizontal:14,
         paddingVertical:14,
         borderRadius:12,
-
-    
     },
     section:{
         marginBottom:16
+    },
+    tag:{
+        paddingHorizontal:20,
+        paddingVertical:4,
+        borderRadius:100,
+        backgroundColor:colors.blue
+    },
+    card:{
+        borderRadius:12
+    },
+    iconContainer:{
+        backgroundColor:colors.blackBlur,
+        height:44,
+        width:44,
+        borderRadius:22,
+        justifyContent:'center',
+        alignItems:'center'
     }
 })

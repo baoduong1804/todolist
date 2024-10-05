@@ -17,7 +17,7 @@ const TitleComponent = (props: Props) => {
   <TextComponent 
     size={size ?? 23}
     font={font??fontFamilies.semiBold}
-    color={color}
+    color={color ?? colors.text}
     text={text}
   />
   )
