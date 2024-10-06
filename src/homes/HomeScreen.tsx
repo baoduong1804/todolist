@@ -17,11 +17,15 @@ import CardImageComponent from "../Components/CardImageComponent";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import AvatarGroup from "../Components/AvatarGroup";
 import ProgressBarComponent from "../Components/ProgressBarComponent";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const HomeScreen = () => {
   return (
+    <View style={{flex:1}}>
+
     <Container>
       {/* Header */}
+      <SpaceComponent height={16}/>
       <SectionComponent>
         <RowComponent justify="space-between">
           <AntDesign name="appstore-o" size={24} color="white" />
@@ -122,7 +126,42 @@ const HomeScreen = () => {
           </View>
         </RowComponent>
       </SectionComponent>
+      {/* Urgents tasks */}
+      <SectionComponent>
+        <TitleComponent text="Urgents tasks"/>
+        <CardComponent>
+          <RowComponent>
+            <CircularComponent value={50} radius={40} />
+            <View style={{flex:1,paddingLeft:20}}>
+              <TextComponent text="Title of task"/>
+            </View>
+          </RowComponent>
+        </CardComponent>
+      </SectionComponent>
     </Container>
+
+    {/* Add New Tasks */}
+    <View style={{
+       position:'absolute',
+       bottom:0,
+       right:0,
+       left:0,
+       paddingVertical:20,
+       paddingHorizontal:60
+    }}>
+      <TouchableOpacity activeOpacity={1} style={
+       [globalStyles.row,{
+        backgroundColor:colors.blue,
+        padding:10,
+        borderRadius:100
+       }]
+      }>
+        <TextComponent text="Add new task" flex={0}/>
+        <Ionicons name="add" size={24} color="white" />
+      </TouchableOpacity>
+    </View>
+    </View>
+
   );
 };
 
