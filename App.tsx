@@ -5,7 +5,10 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { fontFamilies } from "./src/constants/fontFamilies";
-import HomeScreen from "./src/homes/HomeScreen";
+import HomeScreen from "./src/screens/homes/HomeScreen";
+import { colors } from "./src/constants/colors";
+import Router from "./src/routers/Router";
+import { NavigationContainer } from "@react-navigation/native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,11 +29,12 @@ export default function App() {
   }
   return (
     <>
-    <SafeAreaView style={{flex:1}}>
-    {/* <StatusBar translucent style="dark" backgroundColor="transparent" /> */}
-      <HomeScreen />
-    </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        {/* <StatusBar translucent style="dark" backgroundColor={colors.bgColor} /> */}
+        <NavigationContainer>
+          <Router/>
+        </NavigationContainer>
+      </SafeAreaView>
     </>
   );
 }
-

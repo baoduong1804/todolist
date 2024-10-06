@@ -1,31 +1,30 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import Container from "../Components/Container";
-import { globalStyles } from "../styles/globalStyles";
-import RowComponent from "../Components/RowComponent";
-import SectionComponent from "../Components/SectionComponent";
-import TextComponent from "../Components/TextComponent";
-import TitleComponent from "../Components/TitleComponent";
-import { colors } from "../constants/colors";
-import CardComponent from "../Components/CardComponent";
+import Container from "../../Components/Container";
+import { globalStyles } from "../../styles/globalStyles";
+import RowComponent from "../../Components/RowComponent";
+import SectionComponent from "../../Components/SectionComponent";
+import TextComponent from "../../Components/TextComponent";
+import TitleComponent from "../../Components/TitleComponent";
+import { colors } from "../../constants/colors";
+import CardComponent from "../../Components/CardComponent";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Octicons from "@expo/vector-icons/Octicons";
-import TagComponent from "../Components/TagComponent";
-import SpaceComponent from "../Components/SpaceComponent";
-import CircularComponent from "../Components/CircularComponent";
-import CardImageComponent from "../Components/CardImageComponent";
+import TagComponent from "../../Components/TagComponent";
+import SpaceComponent from "../../Components/SpaceComponent";
+import CircularComponent from "../../Components/CircularComponent";
+import CardImageComponent from "../../Components/CardImageComponent";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import AvatarGroup from "../Components/AvatarGroup";
-import ProgressBarComponent from "../Components/ProgressBarComponent";
+import AvatarGroup from "../../Components/AvatarGroup";
+import ProgressBarComponent from "../../Components/ProgressBarComponent";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}:any) => {
   return (
     <View style={{flex:1}}>
-
     <Container>
       {/* Header */}
-      <SpaceComponent height={16}/>
+      <SpaceComponent height={40}/>
       <SectionComponent>
         <RowComponent justify="space-between">
           <AntDesign name="appstore-o" size={24} color="white" />
@@ -41,7 +40,7 @@ const HomeScreen = () => {
       <SectionComponent>
         <RowComponent
           styles={[globalStyles.inputContainer]}
-          onPress={() => alert()}
+          onPress={() => navigation.navigate('SearchScreen')}
         >
           <TextComponent text="Search" />
           <AntDesign name="search1" size={24} color="white" />
@@ -149,7 +148,9 @@ const HomeScreen = () => {
        paddingVertical:20,
        paddingHorizontal:60
     }}>
-      <TouchableOpacity activeOpacity={1} style={
+      <TouchableOpacity activeOpacity={1} 
+        onPress={() => navigation.navigate('AddNewTask')}
+      style={
        [globalStyles.row,{
         backgroundColor:colors.blue,
         padding:10,

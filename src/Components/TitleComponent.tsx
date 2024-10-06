@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TextStyle, StyleProp } from 'react-native'
 import React from 'react'
 import { globalStyles } from '../styles/globalStyles'
 import { fontFamilies } from '../constants/fontFamilies'
@@ -9,7 +9,8 @@ interface Props {
     text:string,
     size?:number,
     font?:string,
-    color?:string
+    color?:string,
+    styles?:StyleProp<TextStyle>
 }
 const TitleComponent = (props: Props) => {
     const {text,size,font,color} = props
