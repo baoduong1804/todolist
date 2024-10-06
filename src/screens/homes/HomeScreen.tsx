@@ -130,7 +130,7 @@ const HomeScreen = ({navigation}:any) => {
         <TitleComponent text="Urgents tasks"/>
         <CardComponent>
           <RowComponent>
-            <CircularComponent value={50} radius={40} />
+            <CircularComponent value={40} radius={40} />
             <View style={{flex:1,paddingLeft:20}}>
               <TextComponent text="Title of task"/>
             </View>
@@ -152,7 +152,7 @@ const HomeScreen = ({navigation}:any) => {
         onPress={() => navigation.navigate('AddNewTask')}
       style={
        [globalStyles.row,{
-        backgroundColor:colors.blue,
+        backgroundColor:colors.blueBottom,
         padding:10,
         borderRadius:100
        }]

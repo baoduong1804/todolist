@@ -8,6 +8,7 @@ import InputComponent from '../../Components/InputComponent'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import SectionComponent from '../../Components/SectionComponent'
+import DateTimePickerComponent from '../../Components/DateTimePickerComponent'
 
 const initValue: TaskModel ={
     title: '',
@@ -21,7 +22,7 @@ const initValue: TaskModel ={
 const AddNewTask = ({navigation}:any) => {
 
     const [taskDetail, setTaskDetail] = useState<TaskModel>(initValue);
-    const handleChangeValue = (id:string, value: string) => {
+    const handleChangeValue = (id:string, value: string| Date) => {
       const item: any ={...taskDetail}
       item[`${id}`] = value
       setTaskDetail(item)
@@ -49,7 +50,15 @@ const AddNewTask = ({navigation}:any) => {
           multible
           numberOfLine={3}
         />
+        <DateTimePickerComponent
+          selected={taskDetail.dueDate}
+          onSelect={val => handleChangeValue('dueDate',val)}
+          placeholder='choice'
+          type='date'
+          title="Due date"
+        />
      </SectionComponent>
+     
      <SectionComponent>
       <Button title='Save' onPress={handleAddNewTask}/>
      </SectionComponent>

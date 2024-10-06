@@ -6,4 +6,5 @@ export const colors = {
     blue: '#41C5FE',
     green: '#2ecc71',
     blackBlur: 'rgba(0,0,0,0.2)',
+    blueBottom: '#2296F3'
 }
