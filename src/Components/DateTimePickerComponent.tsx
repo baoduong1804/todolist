@@ -20,10 +20,11 @@ interface Props {
 const DateTimePickerComponent = (props: Props) => {
   const { type, title, placeholder, selected, onSelect } = props;
   const [isVisibalModalDateTime, setIsVisibalModalDateTime] = useState(false);
-  const handleConfirm = (date:Date) => {
-    console.log("date:", date)
-    setIsVisibalModalDateTime(false)
-  }
+  // const [date, setDate] = useState(selected ?? new Date());
+  const handleConfirm = (date: Date) => {
+    onSelect(date);
+    setIsVisibalModalDateTime(false);
+  };
   return (
     <>
       <View style={{ marginBottom: 16 }}>
@@ -40,19 +41,28 @@ const DateTimePickerComponent = (props: Props) => {
           <TextComponent
             flex={1}
             text={
-              selected ? selected.toISOString() : placeholder ? placeholder : ""
+              selected
+                ? type == "time"
+                  ? `${selected.getHours()}:${selected.getMinutes()}`
+                  : `${selected.getDate()}/${
+                      selected.getMonth() + 1
+                    }/${selected.getFullYear()}`
+                : placeholder
+                ? placeholder
+                : ""
             }
           />
           <Entypo name="chevron-thin-down" size={20} color="white" />
         </RowComponent>
-            <View>
-            <DateTimePickerModal
-              isVisible={isVisibalModalDateTime}
-              mode="time"
-              onConfirm={handleConfirm}
-              onCancel={()=>setIsVisibalModalDateTime(false)}
-              />
-            </View>
+
+        <View>
+          <DateTimePickerModal
+            isVisible={isVisibalModalDateTime}
+            mode={type}
+            onConfirm={handleConfirm}
+            onCancel={() => setIsVisibalModalDateTime(false)}
+          />
+        </View>
       </View>
     </>
   );
